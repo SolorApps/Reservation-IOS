@@ -7,3 +7,15 @@
 //
 
 import Foundation
+
+extension String {
+    var isEmptyOrWhitespace: Bool {
+        get{
+            if self.isEmpty{
+                return true
+            } else{
+                return (self.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+            }
+        }
+    }
+}

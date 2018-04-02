@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+class Response: Decodable {
+    
+    var message: String?
+    
+}

@@ -7,3 +7,18 @@
 //
 
 import Foundation
+
+class Reservation: Decodable {
+    
+    var _id: String?
+    var name: User?
+    var phoneNumber: String?
+    var fullName: String?
+    
+}
+
+class User: Decodable{
+    var first: String?
+    var last: String?
+    
+}

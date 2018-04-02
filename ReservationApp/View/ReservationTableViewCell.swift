@@ -10,6 +10,9 @@ import UIKit
 
 class ReservationTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var fullNameLabel: UILabel!
+    @IBOutlet weak var phoneNumberLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

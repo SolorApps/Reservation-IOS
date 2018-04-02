@@ -10,10 +10,14 @@ import UIKit
 
 class ReservationViewController: UIViewController {
 
+    var reservation: Reservation!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        title = "Reservation"
+        
     }
 
     override func didReceiveMemoryWarning() {

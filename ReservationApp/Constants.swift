@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+enum Api {
+    enum ReservationApp {
+        static let home = "http://reservationbackend-env.7rpptpwvqj.us-east-1.elasticbeanstalk.com/api"
+        static let reservations = home + "/reservations"
+        static let findReservationById = home + "/findReservationById"
+        static let createReservation = home + "/createReservation"
+        static let deleteReservation = home + "/deleteReservation"
+    }
+}
