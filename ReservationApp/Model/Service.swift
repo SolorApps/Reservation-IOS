@@ -15,9 +15,9 @@ class Service {
     
     
     /**
-     retrieves reservations
+     retrieves an array of reservation
      - parameters:
-        - completion: Completion block that will return a Reservation and an error
+        - completion: Completion block that will return reservations and an error
      */
     func getReservations(completion:@escaping (_ reservations: [Reservation]?, _ error: Error?) -> Void){
         
@@ -44,6 +44,12 @@ class Service {
         }
     }
     
+    /**
+     retrieves a reservation based on the id given
+     - parameters:
+        - id: Id of a given reservation
+        - completion: Completion block that will return a reservation and an error
+     */
     func findReservation(by id:String, completion:@escaping (_ reservation: Reservation?, _ error: Error?) -> Void){
         
         let parameters = [
@@ -71,6 +77,14 @@ class Service {
         }
     }
     
+    /**
+     creates a reservation with a given firstname, lastname, and phone number
+     - parameters:
+        - firstName: firstname of person
+        - lastName: lastname of person
+        - phoneNumber: phone number of person
+        - completion: Completion block that will return a reservation and an error
+     */
     func createReservation(with firstName:String, lastName:String, phoneNumber:String, completion:@escaping (_ reservation: Reservation?, _ error: Error?) -> Void){
         
         let parameters = [
@@ -99,7 +113,12 @@ class Service {
         }
     }
 
-    
+    /**
+     deletes a reservation based on the id given
+     - parameters:
+        - id: Id of a given reservation
+        - completion: Completion block that will return a response(containing a message) and an error
+     */
     func deleteReservation(with id:String, completion:@escaping (_ response: Response?, _ error: Error?) -> Void){
         
         let parameters = [

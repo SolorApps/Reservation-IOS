@@ -21,6 +21,8 @@ class ReservationTableViewController: UIViewController, UISearchBarDelegate {
     var reservations = [Reservation]()
     var filteredReservations = [Reservation]()
     
+    
+    // MARK:- Live Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
@@ -62,17 +64,20 @@ class ReservationTableViewController: UIViewController, UISearchBarDelegate {
         
     }
     
+    // Method that will handle when user wants to add a reservation
     @objc func addReservation(_ sender: UIBarButtonItem) {
         let viewController = ReservationCreateViewController()
         self.navigationController?.pushViewController(viewController, animated: true)
     }
     
+    // Method that will make the api request
     func requestReservations() {
         activityIndicatorView.startAnimating()
         Service.shared.getReservations { (reservations, error) in
             DispatchQueue.main.async { [weak self] in
                 if error != nil {
                     self?.activityIndicatorView.stopAnimating()
+                    Alert.showNetworkError(on: self!)
                 } else {
                     if let reservations = reservations {
                         self?.reservations = reservations
@@ -100,6 +105,8 @@ class ReservationTableViewController: UIViewController, UISearchBarDelegate {
     }
     
     // MARK:- Filter methods
+    
+    // This will filter the contents of reservations and set them to filteredReservations
     func filterContentForSearchText(searchText: String) {
         filteredReservations = reservations.filter({( reservation : Reservation) -> Bool in
             return (reservation.fullName?.lowercased().contains(searchText.lowercased()))!

@@ -9,11 +9,13 @@
 import UIKit
 
 class ReservationCreateViewController: UIViewController {
+    
+    // MARK:- IBOutlet
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var phoneNumberTextField: UITextField!
     
-    
+    // MARK:- Live Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,11 +28,14 @@ class ReservationCreateViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK:- IBAction
     @IBAction func createReservation(_ sender: UIButton) {
         createReservationRequest()
     }
     
+    // MARK:- Methods
     
+    // Method that will make the api request
     func createReservationRequest() {
         
         guard let firstName = firstNameTextField.text, !firstName.isEmptyOrWhitespace else{
